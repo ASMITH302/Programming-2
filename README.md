@@ -6,8 +6,8 @@
 ## Your Details
 
 ### Name
-Your Name
+Allan Smith
 ### Programme
-Your Programme
+Computing Science - Programming 2
 
 **Date** : 22/04/2024
