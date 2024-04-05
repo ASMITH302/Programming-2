@@ -22,8 +22,8 @@ public class Controller {
     private void listRunningComps() {
         System.out.println("List Running Competitions");
         System.out.println("=========================");
-        // Complete this method
-
+        List<RunningComp> runningComps = repository.getRunningComps();
+        System.out.println(runningComps);
     }
 
     private void addRunningComp() {
