@@ -10,9 +10,7 @@ import java.util.List;
 public class Controller {
     private Repository repository;
 
-    public Controller() {
-
-    }
+    public Controller() {repository = new Repository();}
 
     public void run() {
         boolean finished = false;
