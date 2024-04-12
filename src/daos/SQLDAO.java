@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.RunningComp;
-import model.Runner;
+import model.RunningComp.Runner;
 
 public class SQLDAO extends DAO {
     static private final String userName = "root";
@@ -33,7 +33,7 @@ public class SQLDAO extends DAO {
         try {
             //String queryString = "SELECT * FROM RUNNINGCOMPS ORDER BY RUNNINGCOMPID ";
             Statement stmt = connection.createStatement();
-            String queryString = "CALL GETRUNNINGCOMPS()";
+            String queryString = "CALL GETRUNNERCOMPS()";
             ResultSet rs = stmt.executeQuery(queryString);
 
             while (rs.next()) {
@@ -73,9 +73,9 @@ public class SQLDAO extends DAO {
     @Override
     public void addRunningComp(RunningComp runningComp) {
         String queryString = "CALL ADDRUNNINGCOMP('";
-        queryString += runningComp.getId() + "', '";
+//        queryString += runningComp.getId() + "', '";
         queryString += runningComp.getSeason() + "', '";
-        queryString += runningComp.getCompetition() + "', ";
+        queryString += runningComp.getCompetition() + "', '";
         queryString += runningComp.getVenue() + "', ";
         queryString += runningComp.getRank() + ")";
         try {
@@ -85,12 +85,12 @@ public class SQLDAO extends DAO {
     }
 
     @Override
-    public void addRunner(Runner runner) {
+    public void addRunner(RunningComp.Runner runner) {
         String queryString = "CALL ADDRUNNER('";
         queryString += runner.getRunnerNumber() + "', '";
         queryString += runner.getRunnerName() + "', '";
-        queryString += runner.getRunningCompId() + "', ";
-        queryString += runner.getGender() + ")";
+        queryString += runner.getGender() + "', ";
+        queryString += runner.getRunningCompId() + ")";
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(queryString);

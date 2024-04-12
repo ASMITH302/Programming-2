@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.RunningComp;
-import model.Runner;
+import model.RunningComp.Runner;
 
 /**
  * An Test Data Access Object class
@@ -29,7 +29,7 @@ public class TestDAO extends DAO {
      */
     private void populate() {
         RunningComp runningComp;
-        Runner runner;
+        RunningComp.Runner runner;
         runningComp = new RunningComp(21, "2023", "Boston Marathon", "Boston, USA", 1);
         runner = new Runner(24,"Fiona O'KEEFFE",21,"F");
         runningComp.addRunnerToComp(runner);
