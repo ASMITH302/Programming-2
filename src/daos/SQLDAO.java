@@ -72,17 +72,34 @@ public class SQLDAO extends DAO {
 
     @Override
     public void addRunningComp(RunningComp runningComp) {
-
+        String queryString = "CALL ADDRUNNINGCOMP('";
+        queryString += runningComp.getId() + "', '";
+        queryString += runningComp.getSeason() + "', '";
+        queryString += runningComp.getCompetition() + "', ";
+        queryString += runningComp.getVenue() + "', ";
+        queryString += runningComp.getRank() + ")";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(queryString);
+        } catch (SQLException ex) {System.out.println(ex.getMessage());}
     }
 
     @Override
     public void addRunner(Runner runner) {
-
+        String queryString = "CALL ADDRUNNER('";
+        queryString += runner.getRunnerNumber() + "', '";
+        queryString += runner.getRunnerName() + "', '";
+        queryString += runner.getRunningCompId() + "', ";
+        queryString += runner.getGender() + ")";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(queryString);
+        } catch (SQLException ex) {System.out.println(ex.getMessage());}
     }
 
     @Override
     public RunningComp getRunningComp(int runningCompId) {
         return null;
     }
-    
+
 }
