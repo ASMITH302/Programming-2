@@ -32,12 +32,12 @@ public class RunningComp {
     /**
      * A constructor which accepts season, competition and opponent values
      */
-    public RunningComp(String season, String competition, String venue) {
+    public RunningComp(String season, String competition, String venue, int rank) {
         this.id = 0;
         this.season = season;
         this.competition = competition;
         this.venue = venue;
-        this.rank = 0;
+        this.rank = rank;
         this.runners = new ArrayList<>();
     }
 
@@ -57,97 +57,91 @@ public class RunningComp {
      * A getter for id values
      */
     public int getId() {
-        // Complete this method
-        return 0;
+        return id;
     }
 
     /**
      * A setter method for id values
      */
     public void setId(int id) {
-        // Complete this method
+        this.id = id;
     }
 
     /**
      * A getter for season values
      */
     public String getSeason() {
-        // Complete this method
-        return "Season";
+        return season;
     }
 
     /**
      * A setter method for season values
      */
     public void setSeason(String season) {
-        // Complete this method
+        this.season = season;
     }
 
     /**
      * A getter for competition values
      */
     public String getCompetition() {
-        // Complete this method
-        return "competition";
+        return competition;
     }
 
     /**
      * A setter method for competition values
      */
     public void setCompetition(String competition) {
-        // Complete this method
+        this.competition = competition;
     }
 
     /**
      * A getter for opponent values
      */
     public String getVenue() {
-        // Complete this method
-        return "venue";
+        return venue;
     }
 
     /**
      * A setter method for opponent values
      */
     public void setVenue(String venue) {
-        // Complete this method
+        this.venue = venue;
     }
 
     /**
      * A getter for result values
      */
     public int getRank() {
-        // Complete this method
-        return 0;
+        return rank;
     }
 
     /**
      * A setter method for result values
      */
     public void setRank(int rank) {
-        // Complete this method
+        this.rank = rank;
     }
 
     /**
      * A getter for players values
      */
     public List<Runner> getRunners() {
-		// Complete this method
-        return runners;
+        return this.runners;
     }
 
     /**
      * A setter method for players values
      */
     public void setRunners(List<Runner> runners) {
-        // Complete this method
+        this.runners = runners;
     }
 
     /**
      * Adds a supplied Runner object to the players attribute
      */
     public void addRunnerToComp(Runner player) {
-        // Complete this method
+        this.runners.add(player);
     }
 
     /**
@@ -155,7 +149,82 @@ public class RunningComp {
      */
     @Override
     public String toString() {
-        // Complete this method
-        return "str";
+        return super.toString() + "\nstr: " + this.runners + this.venue + this.season + this.competition + this.id + this.rank;
+    }
+
+    public static class Runner {
+
+        private final int runnerNumber;
+        private String runnerName;
+        private int runningCompId;
+        private String gender;
+
+        /**
+         * A constructor which accepts player number, name, and cup final id values
+         */
+        public Runner(int runnerNumber, String runnerName, int runningCompId, String gender) {
+            this.runnerNumber = runnerNumber;
+            this.runnerName = runnerName;
+            this.runningCompId = runningCompId;
+            this.gender = gender;
+        }
+
+        /**
+         * A getter for player number values
+         */
+        public int getRunnerNumber() {
+            return runnerNumber;
+        }
+
+        /**
+         * A getter for name values
+         */
+        public String getRunnerName() {
+            return runnerName;
+        }
+
+        /**
+         * A setter method for name values
+         */
+        public void setRunnerName(String runnerName) {
+            this.runnerName = runnerName;
+        }
+
+        /**
+         * A getter for Running Comp id values
+         */
+        public int getRunningCompId() {
+            return runningCompId;
+        }
+
+        /**
+         * A setter method for Running Comp id values
+         */
+        public void setRunningCompId(int runningCompId) {
+            this.runningCompId = runningCompId;
+        }
+
+        /**
+         * A getter for Runner Gender values
+         */
+        public String getGender() {
+            return gender;
+        }
+        /**
+         * A setter method for runner gender values
+         */
+        public void setGender(String gender) {
+            this.gender = gender;
+        }
+
+
+        /**
+         * Constructs and returns a String representing the state of the object
+         */
+        @Override
+        public String toString() {
+            return super.toString() + "\nRunner: " + this.runnerNumber + this.runnerName + this.runningCompId + this.gender;
+        }
+
     }
 }
