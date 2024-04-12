@@ -32,12 +32,12 @@ public class RunningComp {
     /**
      * A constructor which accepts season, competition and opponent values
      */
-    public RunningComp(String season, String competition, String venue) {
+    public RunningComp(String season, String competition, String venue, int rank) {
         this.id = 0;
         this.season = season;
         this.competition = competition;
         this.venue = venue;
-        this.rank = 0;
+        this.rank = rank;
         this.runners = new ArrayList<>();
     }
 

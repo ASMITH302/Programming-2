@@ -14,8 +14,6 @@ public class Controller {
 
     public void run() {
         boolean finished = false;
-        InputHelper inputHelper = new InputHelper();
-        // Complete this method
 
     }
 
@@ -29,14 +27,26 @@ public class Controller {
     private void addRunningComp() {
         System.out.println("Add Running Competition");
         System.out.println("=======================");
-        // Complete this method
+        InputHelper inputHelper = new InputHelper();
+        String Season = inputHelper.readString("Enter new season");
+        String Competition = inputHelper.readString("Enter new competition");
+        String Venue = inputHelper.readString("Enter new venue");
+        int Rank = inputHelper.readInt("Enter new rank");
+        RunningComp newRunningComp = new RunningComp(Season, Competition, Venue, Rank);
+        repository.addRunningComp(newRunningComp);
     }
 
     private void addRunner() {
         System.out.println("Add Runner");
         System.out.println("==========");
         // Complete this method
-
+        InputHelper inputHelper = new InputHelper();
+        int runnerNumber = inputHelper.readInt("Enter new runner number");
+        String runnerName = inputHelper.readString("Enter new runner name");
+        int runningCompId = inputHelper.readInt("Enter new runningCompId");
+        String gender = inputHelper.readString("Enter new runner gender");
+        Runner newRunner = new Runner(runnerNumber, runnerName, runningCompId, gender);
+        repository.addRunner(newRunner);
     }
 
     private RunningComp findRunningComp() {
