@@ -1,6 +1,7 @@
 package repositories;
 
 import daos.DAO;
+import daos.SQLDAO;
 import java.util.List;
 
 import daos.TestDAO;
@@ -19,9 +20,8 @@ public class Repository implements RepositoryInterface {
      * The default constructor which instantiates the dao attribute as a
      * specified type of Data Access Object
      */
-    public Repository() {
-        dao = new TestDAO();
-    }
+    //public Repository() {dao = new TestDAO();}
+    public Repository() {dao = new SQLDAO();}
 
     /**
      * Responds to a request from the Controller to provide a List of

@@ -10,9 +10,7 @@ import java.util.List;
 public class Controller {
     private Repository repository;
 
-    public Controller() {
-
-    }
+    public Controller() {repository = new Repository();}
 
     public void run() {
         boolean finished = false;
@@ -24,8 +22,8 @@ public class Controller {
     private void listRunningComps() {
         System.out.println("List Running Competitions");
         System.out.println("=========================");
-        // Complete this method
-
+        List<RunningComp> runningComps = repository.getRunningComps();
+        System.out.println(runningComps);
     }
 
     private void addRunningComp() {
