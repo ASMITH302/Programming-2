@@ -14,7 +14,30 @@ public class Controller {
 
     public void run() {
         boolean finished = false;
-
+        InputHelper inputHelper = new InputHelper();
+        do {
+            System.out.print("\nA. List RunningComp");
+            System.out.print("\tB. Add RunningComp");
+            System.out.print("\tC. Add Runner");
+            System.out.print("\tQ. Quit\n");
+            char choice = inputHelper.readCharacter("Enter choice", "ABCQ");
+            switch (choice) {
+                case 'A':
+                    listRunningComps();
+                    break;
+                case 'B':
+                    addRunningComp();
+                    break;
+                case 'C':
+                    addRunner();
+                    break;
+                case 'Q':
+                    finished = true;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + choice);
+            }
+        } while (!finished);
     }
 
     private void listRunningComps() {
